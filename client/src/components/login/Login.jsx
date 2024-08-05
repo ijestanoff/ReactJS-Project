@@ -1,6 +1,28 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { useLogin } from '../../hooks/useAuth';
+import { useForm } from '../../hooks/useForm';
+
+const initialValues = { email: '', password: '' };
 
 export default function Login() {
+    const login = useLogin();
+    const navigate = useNavigate();
+    const loginHandler = async ({ email, password }) => {
+        try {
+            await login(email, password);
+            navigate('/');
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+    
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, loginHandler);
+
     return (
         <section className="ticket-section section-padding">
             <div className="section-overlay" />

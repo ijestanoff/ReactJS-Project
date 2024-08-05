@@ -1,4 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
+
+import { AuthContextProvider } from './contexts/AuthContext';
+
 import About from './components/about/About';
 import Catalog from './components/catalog/Catalog';
 import Footer from './components/footer/Footer';
@@ -12,7 +15,7 @@ import Register from './components/register/Register';
 
 function App() {
     return (
-        <>
+        <AuthContextProvider>
             <main>
                 {/* <header className="site-header">
                     <div className="container">
@@ -26,8 +29,6 @@ function App() {
                         </div>
                     </div>
                 </header> */}
-
-
                 <Header />
 
                 <Routes>
@@ -44,7 +45,7 @@ function App() {
             </main>
 
             <Footer />
-        </>
+        </AuthContextProvider>
     );
 }
 
