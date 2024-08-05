@@ -13,25 +13,14 @@ import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Logout from './components/logout/Logout';
+import Create from './components/create/Create';
 
 function App() {
     return (
         <AuthContextProvider>
-            <main>
-                {/* <header className="site-header">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 col-12 d-flex flex-wrap">
-                                <p className="d-flex me-4 mb-0">
-                                    <i className="bi-person custom-icon me-2" />
-                                    <strong className="text-dark">Welcome to Sunny Beach Music Festival 2024</strong>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </header> */}
-                <Header />
 
+            <main>
+                <Header />
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
@@ -42,10 +31,10 @@ function App() {
                     <Route path='/login' element={<Login />} />
                     <Route path='/logout' element={<Logout />} />
                     <Route path='/register' element={<Register />} />
+                    <Route path='/create' element={<Create />} />
                 </Routes>
-
             </main>
-
+            
             <Footer />
         </AuthContextProvider>
     );

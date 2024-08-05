@@ -37,7 +37,7 @@ export default function Header() {
                         {isAuthenticated
                             ? (
                                 <li className="nav-item">
-                                    <Link className="nav-link click-scroll" to="/create">AddArtist</Link>
+                                    <Link className="nav-link click-scroll" to="/create">Add Artist</Link>
                                 </li>
                             )
                             : (<></>)

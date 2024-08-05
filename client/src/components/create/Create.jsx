@@ -1,0 +1,91 @@
+import { useNavigate } from 'react-router-dom';
+import { useForm } from '../../hooks/useForm';
+import { useCreateGame } from '../../hooks/useGames';
+
+const initialValues = {
+    name: '',
+    birthday: '',
+    music: '',
+    youTubeChannel: '',
+    summary: '',
+};
+
+export default function Create() {
+    const navigate = useNavigate();
+    const createGame = useCreateGame();
+
+    const createHandler = async (values) => {
+        try {
+            const { _id: gameId } = await createGame(values);
+            navigate(`/games/${gameId}/details`);
+        } catch (error) {
+            //TODO show error
+            console.log(error.message);
+        }
+    };
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, createHandler);
+
+    return (
+        <section className="ticket-section section-padding">
+            <div className="section-overlay" />
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-6 col-10 mx-auto">
+                        <form
+                            className="custom-form ticket-form mb-5 mb-lg-0"
+                            onSubmit={submitHandler}
+                            role="form"
+                        >
+                            <h2 className="text-center mb-4">Add Artist</h2>
+                            <div className="ticket-form-body">
+
+                                <label htmlFor="name">Name:</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    className="form-control"
+                                    value={values.name}
+                                    onChange={changeHandler}
+                                    placeholder=""
+                                    required=""
+                                />
+                                <label htmlFor="birthday">Birthday:</label>
+                                <input
+                                    type="text"
+                                    name="birthday"
+                                    id="birthday"
+                                    className="form-control"
+                                    value={values.birthday}
+                                    onChange={changeHandler}
+                                    required=""
+                                />
+                                <label htmlFor="music">Music:</label>
+                                <input
+                                    type="text"
+                                    name="music"
+                                    id="music"
+                                    className="form-control"
+                                    value={values.music}
+                                    onChange={changeHandler}
+                                    required=""
+                                />
+
+                                <div className="col-lg-4 col-md-10 col-8 mx-auto">
+                                    <button type="submit" className="form-control">
+                                        Add Artist
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}

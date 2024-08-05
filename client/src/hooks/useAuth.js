@@ -22,7 +22,6 @@ export const useRegister = () => {
         const result = await register(email, password);
 
         result.password = '******';
-        console.log(result);
         changeAuthState(result);
 
         return result;
@@ -35,19 +34,13 @@ export const useLogout = () => {
     const { logout: localLogout } = useAuthContext();
 
     const logoutHandler = async () => {
-        await logout();
+        try {
+            await logout();
+        } catch (error) {
+            console.log(error.message);
+        }
         localLogout();
     };
 
     return logoutHandler;
 };
-
-// export default function withAuth(Component) {
-//     const ComponentWrapper = (props) => {
-//         const authContext = useAuthContext();
-
-//         return <Component {...props} auth={authContext} />;
-//     };
-
-//     return ComponentWrapper;
-// }

@@ -397,7 +397,9 @@ strong {
 }
 
 .navbar-nav .nav-link {
-  display: inline-block;
+  display: inline-flex;
+  /* justify-content: space-around; */
+  white-space: nowrap;
   color: var(--white-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-normal);
