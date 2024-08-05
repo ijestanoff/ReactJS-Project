@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Login() {
+export default function Register() {
     return (
         <section className="ticket-section section-padding">
             <div className="section-overlay" />
@@ -13,7 +13,7 @@ export default function Login() {
                             method="post"
                             role="form"
                         >
-                            <h2 className="text-center mb-4">Login</h2>
+                            <h2 className="text-center mb-4">Register</h2>
                             <div className="ticket-form-body">
 
                                 <label htmlFor="email">Email:</label>
@@ -30,7 +30,15 @@ export default function Login() {
                                 <input
                                     type="password"
                                     name="password"
-                                    id="login-password"
+                                    id="register-password"
+                                    className="form-control"
+                                    required=""
+                                />
+                                <label htmlFor="password">Confirm Password:</label>
+                                <input
+                                    type="password"
+                                    name="rePassword"
+                                    id="register-rePassword"
                                     className="form-control"
                                     required=""
                                 />
@@ -42,7 +50,7 @@ export default function Login() {
                                 </div>
                                 <p></p>
                                 <p className="field">
-                                    <span>If you are not registered click <Link to="/register">here</Link></span>
+                                    <span>If you are already registered login <Link to="/login">here</Link></span>
                                 </p>
                             </div>
                         </form>

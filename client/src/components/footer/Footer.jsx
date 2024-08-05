@@ -64,6 +64,12 @@ export default function Footer() {
                             <li className="site-footer-link-item">
                                 <Link to="/contact" className="site-footer-link">Contact</Link>
                             </li>
+                            <li className="site-footer-link-item">
+                                <Link to="/login" className="site-footer-link">Login</Link>
+                            </li>
+                            <li className="site-footer-link-item">
+                                <Link to="/register" className="site-footer-link">Register</Link>
+                            </li>
                         </ul>
                     </div>
                     <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
