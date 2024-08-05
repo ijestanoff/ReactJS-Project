@@ -12,29 +12,29 @@ export default function Footer() {
                         <div className="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
                             <ul className="social-icon d-flex justify-content-lg-end">
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="https://twitter.com" className="social-icon-link">
                                         <span className="bi-twitter" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="https://apple.com" className="social-icon-link">
                                         <span className="bi-apple" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="https://instagram.com" className="social-icon-link">
                                         <span className="bi-instagram" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="https://youtube.com" className="social-icon-link">
                                         <span className="bi-youtube" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="https://pinterest.com" className="social-icon-link">
                                         <span className="bi-pinterest" />
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

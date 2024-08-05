@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Home() {
     return (
         <section className="hero-section" id="section_1">
@@ -7,7 +9,7 @@ export default function Home() {
                     <div className="col-12 mt-auto mb-5 text-center">
                         <small>Sunny Beach Live Presents</small>
                         <h1 className="text-white mb-5">Night Live 2024</h1>
-                        <a className="btn custom-btn smoothscroll" href="#section_2">Let's begin</a>
+                        <Link className="btn custom-btn smoothscroll" to="/catalog">Let's begin</Link>
                     </div>
                     <div className="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
                         <div className="date-wrap">
@@ -26,19 +28,19 @@ export default function Home() {
                             <ul className="social-icon d-flex align-items-center justify-content-center">
                                 <span className="text-white me-3">Share:</span>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="http://facebook.com" className="social-icon-link">
                                         <span className="bi-facebook" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="http://twitter.com" className="social-icon-link">
                                         <span className="bi-twitter" />
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="social-icon-item">
-                                    <a href="#" className="social-icon-link">
+                                    <Link to="http://instagram.com" className="social-icon-link">
                                         <span className="bi-instagram" />
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
