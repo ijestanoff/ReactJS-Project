@@ -35,8 +35,8 @@ export const useLogout = () => {
     const { logout: localLogout } = useAuthContext();
 
     const logoutHandler = async () => {
-        localLogout();
         await logout();
+        localLogout();
     };
 
     return logoutHandler;

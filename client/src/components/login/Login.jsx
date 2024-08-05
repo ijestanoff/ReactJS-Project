@@ -16,7 +16,7 @@ export default function Login() {
             console.log(error.message);
         }
     };
-    
+
     const {
         values,
         changeHandler,
@@ -31,8 +31,7 @@ export default function Login() {
                     <div className="col-lg-6 col-10 mx-auto">
                         <form
                             className="custom-form ticket-form mb-5 mb-lg-0"
-                            action="#"
-                            method="post"
+                            onSubmit={submitHandler}
                             role="form"
                         >
                             <h2 className="text-center mb-4">Login</h2>
@@ -46,6 +45,8 @@ export default function Login() {
                                     pattern="[^ @]*@[^ @]*"
                                     className="form-control"
                                     placeholder="someone@somewhere.com"
+                                    value={values.email}
+                                    onChange={changeHandler}
                                     required=""
                                 />
                                 <label htmlFor="password">Password:</label>
@@ -54,6 +55,8 @@ export default function Login() {
                                     name="password"
                                     id="login-password"
                                     className="form-control"
+                                    value={values.password}
+                                    onChange={changeHandler}
                                     required=""
                                 />
 

@@ -1,6 +1,34 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRegister } from '../../hooks/useAuth';
+import { useForm } from '../../hooks/useForm';
+import { useState } from 'react';
+
+const initialValues = { email: '', password: '', rePassword: '' };
 
 export default function Register() {
+    const [error, setError] = useState('');
+    const register = useRegister();
+    const navigate = useNavigate();
+
+    const registerHandler = async (values) => {
+        if (values.password != values.rePassword) {
+            return setError('Password missmatch!');
+        }
+
+        try {
+            await register(values.email, values.password);
+            navigate('/');
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(initialValues, registerHandler);
+
     return (
         <section className="ticket-section section-padding">
             <div className="section-overlay" />
@@ -9,8 +37,7 @@ export default function Register() {
                     <div className="col-lg-6 col-10 mx-auto">
                         <form
                             className="custom-form ticket-form mb-5 mb-lg-0"
-                            action="#"
-                            method="post"
+                            onSubmit={submitHandler}
                             role="form"
                         >
                             <h2 className="text-center mb-4">Register</h2>
@@ -23,6 +50,8 @@ export default function Register() {
                                     id="email"
                                     pattern="[^ @]*@[^ @]*"
                                     className="form-control"
+                                    value={values.email}
+                                    onChange={changeHandler}
                                     placeholder="someone@somewhere.com"
                                     required=""
                                 />
@@ -32,6 +61,8 @@ export default function Register() {
                                     name="password"
                                     id="register-password"
                                     className="form-control"
+                                    value={values.password}
+                                    onChange={changeHandler}
                                     required=""
                                 />
                                 <label htmlFor="password">Confirm Password:</label>
@@ -40,12 +71,14 @@ export default function Register() {
                                     name="rePassword"
                                     id="register-rePassword"
                                     className="form-control"
+                                    value={values.rePassword}
+                                    onChange={changeHandler}
                                     required=""
                                 />
 
                                 <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                     <button type="submit" className="form-control">
-                                        Login
+                                        Register
                                     </button>
                                 </div>
                                 <p></p>

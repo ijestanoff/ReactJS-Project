@@ -12,6 +12,7 @@ import Schedule from './components/schedule/Schedule';
 import Contact from './components/contact/Contact';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
+import Logout from './components/logout/Logout';
 
 function App() {
     return (
@@ -39,6 +40,7 @@ function App() {
                     <Route path='/pricing' element={<Pricing />} />
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/login' element={<Login />} />
+                    <Route path='/logout' element={<Logout />} />
                     <Route path='/register' element={<Register />} />
                 </Routes>
 
