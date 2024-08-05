@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Header() {
     return (
         <nav className="navbar navbar-expand-lg">
@@ -12,25 +14,25 @@ export default function Header() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav align-items-lg-center ms-auto me-lg-5">
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_1">Home</a>
+                            <Link className="nav-link click-scroll" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_2">About</a>
+                            <Link className="nav-link click-scroll" to="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_3">Artists</a>
+                            <Link className="nav-link click-scroll" to="/catalog">Artists</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_4">Schedule</a>
+                            <Link className="nav-link click-scroll" to="/schedule">Schedule</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_5">Pricing</a>
+                            <Link className="nav-link click-scroll" to="/pricing">Pricing</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_6">Contact</a>
+                            <Link className="nav-link click-scroll" to="/contact">Contact</Link>
                         </li>
                     </ul>
-                    <a href="ticket.html" className="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+                    <Link to="/login" className="btn custom-btn d-lg-block d-none">Sign Up</Link>
                 </div>
             </div>
         </nav>

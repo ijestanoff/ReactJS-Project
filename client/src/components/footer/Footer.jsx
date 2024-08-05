@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
     return (
         <footer className="site-footer">
@@ -45,46 +47,46 @@ export default function Footer() {
                         <h5 className="site-footer-title mb-3">Links</h5>
                         <ul className="site-footer-links">
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">Home</a>
+                                <Link to="/" className="site-footer-link">Home</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">About</a>
+                                <Link to="/about" className="site-footer-link">About</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">Artists</a>
+                                <Link to="/catalog" className="site-footer-link">Artists</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">Schedule</a>
+                                <Link to="schedule" className="site-footer-link">Schedule</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">Pricing</a>
+                                <Link to="/pricing" className="site-footer-link">Pricing</Link>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">Contact</a>
+                                <Link to="/contact" className="site-footer-link">Contact</Link>
                             </li>
                         </ul>
                     </div>
                     <div className="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
                         <h5 className="site-footer-title mb-3">Have a question?</h5>
                         <p className="text-white d-flex mb-1">
-                            <a href="tel: 090-080-0760" className="site-footer-link">
-                                090-080-0760
-                            </a>
+                            <Link to="tel: +359-888-666-777" className="site-footer-link">
+                                +359-888-666-777
+                            </Link>
                         </p>
                         <p className="text-white d-flex">
-                            <a href="mailto:hello@company.com" className="site-footer-link">
-                                hello@company.com
-                            </a>
+                            <Link to="mailto:sunnybeach@abv.bg" className="site-footer-link">
+                                sunnybeach@abv.bg
+                            </Link>
                         </p>
                     </div>
                     <div className="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
                         <h5 className="site-footer-title mb-3">Location</h5>
                         <p className="text-white d-flex mt-3 mb-2">
-                            Silang Junction South, Tagaytay, Cavite, Philippines</p>
-                        <a className="link-fx-1 color-contrast-higher mt-3" href="#">
+                            Sunny Beach, Nessebar, Bulgaria</p>
+                        <Link className="link-fx-1 color-contrast-higher mt-3" to="/catalog">
                             <span>Our Maps</span>
                             <svg className="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><circle cx={16} cy={16} r="15.5" /><line x1={10} y1={18} x2={16} y2={12} /><line x1={16} y1={12} x2={22} y2={18} /></g></svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -97,14 +99,14 @@ export default function Footer() {
                         <div className="col-lg-8 col-12 mt-lg-5">
                             <ul className="site-footer-links">
                                 <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">Terms &amp; Conditions</a>
+                                    <Link to="/about" className="site-footer-link">Terms &amp; Conditions</Link>
                                 </li>
                                 <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">Privacy Policy</a>
+                                    <Link to="/about" className="site-footer-link">Privacy Policy</Link>
                                 </li>
-                                <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">Your Feedback</a>
-                                </li>
+                                {/* <li className="site-footer-link-item">
+                                    <Link to="/about" className="site-footer-link">Your Feedback</Link>
+                                </li> */}
                             </ul>
                         </div>
                     </div>

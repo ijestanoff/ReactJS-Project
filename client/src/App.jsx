@@ -7,6 +7,7 @@ import Home from './components/home/Home';
 import Pricing from './components/pricing/Pricing';
 import Schedule from './components/schedule/Schedule';
 import Contact from './components/contact/Contact';
+import Login from './components/login/Login';
 
 function App() {
     return (
@@ -29,27 +30,14 @@ function App() {
                 <Header />
 
                 <Routes>
-                    {/* <Route path='/' element={<Home />} />
+                    <Route path='/' element={<Home />} />
                     <Route path='/about' element={<About />} />
                     <Route path='/catalog' element={<Catalog />} />
                     <Route path='/schedule' element={<Schedule />} />
                     <Route path='/pricing' element={<Pricing />} />
-                    <Route path='/pricing' element={<Contact />} /> */}
-
-
-
-
+                    <Route path='/contact' element={<Contact />} />
+                    <Route path='/login' element={<Login />} />
                 </Routes>
-
-                <Home />
-                <About />
-
-                <Catalog />
-
-                <Schedule />
-
-                <Pricing />
-                <Contact />
 
             </main>
 
