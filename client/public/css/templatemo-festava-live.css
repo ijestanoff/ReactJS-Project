@@ -43,6 +43,12 @@ https://templatemo.com/tm-583-festava-live
   --font-weight-bold: 700;
 }
 
+.my-button {
+  width: 200px;
+  display: inline-block;
+  margin-right: 10px; /* Adjusts the space between the buttons */
+}
+
 body {
   background-color: var(--white-color);
   font-family: var(--body-font-family);

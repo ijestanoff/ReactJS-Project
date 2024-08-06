@@ -35,6 +35,7 @@ function App() {
                     <Route element={<PrivateGuard />}>
                         <Route path='/create' element={<Create />} />
                         <Route path='/logout' element={<Logout />} />
+                        <Route path='/catalog/:artistId/edit' element={<ArtistEdit />} />
                     </Route>
                 </Routes>
             </main>

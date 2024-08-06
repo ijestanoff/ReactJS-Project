@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetOneArtist } from '../../hooks/useArtists';
-// import { useForm } from '../../../../hooks/useForm';
-// import { useAuthContext } from '../../../../contexts/AuthContext';
+import { useForm } from '../../hooks/useForm';
+import { useAuthContext } from '../../contexts/AuthContext';
 // import { useGetAllComments, useCreateComment } from '../../../../hooks/useComments';
 import artistsAPI from '../../api/artists-api';
 
@@ -11,14 +11,14 @@ import artistsAPI from '../../api/artists-api';
 
 export default function ArtistDetails() {
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const { artistId } = useParams();
     //const [comments, dispatch] = useGetAllComments(artistId);
     //const createComment = useCreateComment();
-    // const { email, userId } = useAuthContext();
+    const { email, userId } = useAuthContext();
     const [artist] = useGetOneArtist(artistId);
 
-    // const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated } = useAuthContext();
 
     // const {
     //     changeHandler,
@@ -35,22 +35,27 @@ export default function ArtistDetails() {
     //     }
     // });
 
-    // const artistDeleteHandler = async () => {
-    //     const isConfirmed = confirm(`Are you sure you want to delete ${artist.name} artist?`);
-    //     if (!isConfirmed) {
-    //         return;
-    //     }
+    const artistDeleteHandler = async () => {
+        const isConfirmed = confirm(`Are you sure you want to delete ${artist.name} artist?`);
+        if (!isConfirmed) {
+            return;
+        }
 
-    //     try {
-    //         await artistsAPI.remove(artistId);
+        try {
+            await artistsAPI.remove(artistId);
 
-    //         navigate('/');
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
+            navigate('/');
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
 
-    //const isOwner = userId === artist._ownerId;
+    const isOwner = userId === artist._ownerId;
+
+    // console.log('userId', userId);
+    // console.log(artist._ownerId);
+    // console.log('owner=', isOwner);
+    
 
     return (
         <section className="about-section section-padding" id="section_2">
@@ -59,13 +64,27 @@ export default function ArtistDetails() {
                     <div className="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
                         <div className="services-info">
                             <h2 className="text-white mb-4">Details for Artist:</h2>
+                            <h6 className="text-white mt-4">Name:</h6>
                             <p className="text-white">{artist.name}</p>
                             <h6 className="text-white mt-4">Birthdate:</h6>
                             <p className="text-white">{artist.birthday}</p>
                             <h6 className="text-white mt-4">Music:</h6>
                             <p className="text-white">{artist.music}</p>
+                            <h6 className="text-white mt-4">YouTube Channel:</h6>
+                            <p className="text-white">{artist.youTubeChannel}</p>
+                            <h6 className="text-white mt-4">Summary:</h6>
+                            <p className="text-white">{artist.summary}</p>
+                            {isOwner && (
+                                <>
+                                    <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link>
+                                    <p></p>
+                                    <Link to="#" onClick={artistDeleteHandler} className="btn custom-btn d-lg-block d-none my-button">Delete</Link>
+                                </>
+                            )}
                         </div>
+
                     </div>
+
                     <div className="col-lg-6 col-12">
                         <div className="about-text-wrap">
                             <img src={artist.imageUrl} className="about-image img-fluid" />

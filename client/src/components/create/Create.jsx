@@ -6,6 +6,7 @@ const initialValues = {
     name: '',
     birthday: '',
     music: '',
+    imageUrl: '',
     youTubeChannel: '',
     summary: '',
 };
