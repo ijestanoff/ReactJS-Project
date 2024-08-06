@@ -1347,7 +1347,7 @@
                 "birthday": "August 16, 1958",
                 "music": "Pop, R&amp;B",
                 "youTubeChannel": "Madona Official",
-                "imageUrl": "images/artists/joecalih-UmTZqmMvQcw-unsplash.jpg",
+                "imageUrl": "https://aromaticsoul.com/images/images/madonna-height-how-tall.jpg",
                 "summary": "Madonna Louise Ciccone is an American singer, songwriter, and actress. Regarded as the Queen of Pop, she has been recognized for her continual reinvention and versatility in music production, songwriting and visual presentation. Madonna's works, which incorporate social, political, sexual, and religious themes, have generated both controversy and critical acclaim.",
                 "_createdOn": 1722278744551,
                 "_id": "5d9a39df-002f-4fdf-958e-bb5283b52a0d"
@@ -1359,7 +1359,7 @@
                 "birthday": "Feb 20, 1988",
                 "music": "Country",
                 "youTubeChannel": "Rihana Official",
-                "imageUrl": "images/artists/abstral-official-bdlMO9z5yco-unsplash.jpg",
+                "imageUrl": "https://www.hindustantimes.com/ht-img/img/2023/05/26/550x309/ezgif-4-5e83476306_1685070528590_1685070540412.jpg",
                 "summary": "Robyn Rihanna Fenty is a Barbadian singer, businesswoman, actress, and songwriter. She was cited as the best-selling female recording artist of the 21st century by Guinness World Records and is the wealthiest female musical artist with an estimated net worth of $1.4 billion as of 2024. Rihanna is the highest-certified female digital single artist and has six U.S. diamond certified singles (seven as a featured artist).",
                 "_createdOn": 1722278744554,
                 "_id": "72c2c273-6157-483d-bff1-754953430689"
@@ -1372,7 +1372,7 @@
                 "birthday": "October 8, 1985",
                 "music": "Pop",
                 "youTubeChannel": "Bruno Official",
-                "imageUrl": "images/artists/soundtrap-rAT6FJ6wltE-unsplash.jpg",
+                "imageUrl": "https://www.hindustantimes.com/ht-img/img/2023/10/08/1600x900/bruno_1696764305426_1696764322971.jpg",
                 "summary": "Bruno Alexandre Sutter de Lima is a Brazilian singer-songwriter, bassist, record producer, actor, humorist, YouTuber, voice actor, and television music and talent competition judge. He is famous for his work with comedy troupe Hermes & Renato, of which he was one of its founding members, remaining with them from its inception in 1999 until his departure in 2012; under the alias Detonator, he fronts the parodic heavy metal projects Massacration and Detonator e as Musas do Metal.",
                 "_createdOn": 1722278744556,
                 "_id": "76497270-39b1-43be-8ea5-0ef35f898898"

@@ -15,6 +15,7 @@ import Register from './components/register/Register';
 import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
 import PrivateGuard from './components/common/PrivateGuard';
+import ArtistDetails from './components/artistDetails/ArtistDetails';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path='/schedule' element={<Schedule />} />
                     <Route path='/pricing' element={<Pricing />} />
                     <Route path='/contact' element={<Contact />} />
+                    <Route path='/catalog/:artistId/details' element={<ArtistDetails />} />
                     <Route path='/login' element={<Login />} />
                     <Route path='/register' element={<Register />} />
                     <Route element={<PrivateGuard />}>
