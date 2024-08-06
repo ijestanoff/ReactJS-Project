@@ -2,7 +2,7 @@ import { useEffect, useReducer } from 'react';
 import commentsAPI from '../api/comments-api';
 
 export function useCreateComment() {
-    const createHandler = (gameId, comment) => commentsAPI.create(gameId, comment);
+    const createHandler = (artistId, comment) => commentsAPI.create(artistId, comment);
 
     return createHandler;
 }
@@ -20,16 +20,16 @@ function commentsReducer(state, action) {
 
 
 
-export function useGetAllComments(gameId) {
+export function useGetAllComments(artistId) {
     const [comments, dispatch] = useReducer(commentsReducer, []);
 
     useEffect(() => {
         (async () => {
-            const result = await commentsAPI.getAll(gameId);
+            const result = await commentsAPI.getAll(artistId);
 
             dispatch({ type: 'GET_ALL', payload: result});
         })();
-    }, [gameId]);
+    }, [artistId]);
 
     return [comments, dispatch];
 }

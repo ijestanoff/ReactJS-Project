@@ -14,11 +14,11 @@ import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Logout from './components/logout/Logout';
 import Create from './components/create/Create';
+import PrivateGuard from './components/common/PrivateGuard';
 
 function App() {
     return (
         <AuthContextProvider>
-
             <main>
                 <Header />
                 <Routes>
@@ -29,14 +29,16 @@ function App() {
                     <Route path='/pricing' element={<Pricing />} />
                     <Route path='/contact' element={<Contact />} />
                     <Route path='/login' element={<Login />} />
-                    <Route path='/logout' element={<Logout />} />
                     <Route path='/register' element={<Register />} />
-                    <Route path='/create' element={<Create />} />
+                    <Route element={<PrivateGuard />}>
+                        <Route path='/create' element={<Create />} />
+                        <Route path='/logout' element={<Logout />} />
+                    </Route>
                 </Routes>
             </main>
-            
+
             <Footer />
-        </AuthContextProvider>
+        </AuthContextProvider >
     );
 }
 

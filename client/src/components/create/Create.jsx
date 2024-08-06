@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
-import { useCreateGame } from '../../hooks/useGames';
+import { useCreateArtist } from '../../hooks/useArtists';
 
 const initialValues = {
     name: '',
@@ -12,12 +12,12 @@ const initialValues = {
 
 export default function Create() {
     const navigate = useNavigate();
-    const createGame = useCreateGame();
+    const createArtist = useCreateArtist();
 
     const createHandler = async (values) => {
         try {
-            const { _id: gameId } = await createGame(values);
-            navigate(`/games/${gameId}/details`);
+            const { _id: artistId } = await createArtist(values);
+            navigate(`/catalog/${artistId}/details`);
         } catch (error) {
             //TODO show error
             console.log(error.message);
@@ -55,6 +55,16 @@ export default function Create() {
                                     placeholder=""
                                     required=""
                                 />
+                                <label htmlFor="imageUrl">Image address:</label>
+                                <input
+                                    type="text"
+                                    name="imageUrl"
+                                    id="imageUrl"
+                                    className="form-control"
+                                    value={values.imageUrl}
+                                    onChange={changeHandler}
+                                    required=""
+                                />
                                 <label htmlFor="birthday">Birthday:</label>
                                 <input
                                     type="text"
@@ -72,6 +82,26 @@ export default function Create() {
                                     id="music"
                                     className="form-control"
                                     value={values.music}
+                                    onChange={changeHandler}
+                                    required=""
+                                />
+                                <label htmlFor="youtubechannel">Youtube channel:</label>
+                                <input
+                                    type="text"
+                                    name="youTubeChannel"
+                                    id="youTubeChannel"
+                                    className="form-control"
+                                    value={values.youTubeChannel}
+                                    onChange={changeHandler}
+                                    required=""
+                                />
+                                <label htmlFor="summary">Summary:</label>
+                                <textarea
+                                    type="text"
+                                    name="summary"
+                                    id="summary"
+                                    className="form-control"
+                                    value={values.summary}
                                     onChange={changeHandler}
                                     required=""
                                 />
