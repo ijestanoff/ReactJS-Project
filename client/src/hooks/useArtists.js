@@ -27,14 +27,6 @@ export function useGetOneArtist(artistId) {
             .then(result => setArtist(result));
     }, [artistId]);
 
-    // useEffect(() => {
-    //     (async () => {
-    //         const result = await gamesAPI.getOne(gameId);
-
-    //         setGame(result);
-    //     })();
-    // }, []);
-
     return [
         artist,
         setArtist,

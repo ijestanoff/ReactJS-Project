@@ -1345,7 +1345,7 @@
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "name": "Madona",
                 "birthday": "August 16, 1958",
-                "music": "Pop, R&amp;B",
+                "music": "Pop, R&B",
                 "youTubeChannel": "Madona Official",
                 "imageUrl": "https://aromaticsoul.com/images/images/madonna-height-how-tall.jpg",
                 "summary": "Madonna Louise Ciccone is an American singer, songwriter, and actress. Regarded as the Queen of Pop, she has been recognized for her continual reinvention and versatility in music production, songwriting and visual presentation. Madonna's works, which incorporate social, political, sexual, and religious themes, have generated both controversy and critical acclaim.",

@@ -2,38 +2,38 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetOneArtist } from '../../hooks/useArtists';
 import { useForm } from '../../hooks/useForm';
 import { useAuthContext } from '../../contexts/AuthContext';
-// import { useGetAllComments, useCreateComment } from '../../../../hooks/useComments';
+import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 import artistsAPI from '../../api/artists-api';
 
-// const initialValues = {
-//     comment: ''
-// };
+const initialValues = {
+    comment: ''
+};
 
 export default function ArtistDetails() {
 
     const navigate = useNavigate();
     const { artistId } = useParams();
-    //const [comments, dispatch] = useGetAllComments(artistId);
-    //const createComment = useCreateComment();
+    const [comments, dispatch] = useGetAllComments(artistId);
+    const createComment = useCreateComment();
     const { email, userId } = useAuthContext();
     const [artist] = useGetOneArtist(artistId);
 
     const { isAuthenticated } = useAuthContext();
 
-    // const {
-    //     changeHandler,
-    //     submitHandler,
-    //     values,
-    // } = useForm(initialValues, async ({ comment }) => {
-    //     try {
-    //         const newComment = await createComment(artistId, comment);
+    const {
+        changeHandler,
+        submitHandler,
+        values,
+    } = useForm(initialValues, async ({ comment }) => {
+        try {
+            const newComment = await createComment(artistId, comment);
 
-    //         // setComments(oldComments => [...oldComments, newComment]);
-    //         dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } });
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // });
+            // setComments(oldComments => [...oldComments, newComment]);
+            dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } });
+        } catch (error) {
+            console.log(error.message);
+        }
+    });
 
     const artistDeleteHandler = async () => {
         const isConfirmed = confirm(`Are you sure you want to delete ${artist.name} artist?`);
@@ -51,11 +51,6 @@ export default function ArtistDetails() {
     };
 
     const isOwner = userId === artist._ownerId;
-
-    // console.log('userId', userId);
-    // console.log(artist._ownerId);
-    // console.log('owner=', isOwner);
-    
 
     return (
         <section className="about-section section-padding" id="section_2">
@@ -82,25 +77,60 @@ export default function ArtistDetails() {
                                 </>
                             )}
                         </div>
-
                     </div>
 
                     <div className="col-lg-6 col-12">
                         <div className="about-text-wrap">
                             <img src={artist.imageUrl} className="about-image img-fluid" />
-                            {/* <div className="about-text-info d-flex">
-                                <div className="d-flex">
-                                    <i className="about-text-icon bi-person" />
-                                </div>
-                                <div className="ms-4">
-                                    <h3>a happy moment</h3>
-                                    <p className="mb-0">your amazing festival experience with us</p>
-                                </div>
-                            </div> */}
                         </div>
+                    </div>
+                    <p></p>
+                    <div className="col-lg-6 col-12">
+                        <h2 className="text-white mb-4">Comments:</h2>
+                        <ul>
+                            {comments.map(comment => (
+                                <li key={comment._id}>
+                                    <p className="text-white">{comment.author.email}: {comment.text}</p>
+                                </li>
+                            ))}
+                        </ul>
+                        {comments.length === 0 && <p className="no-comment">No comments.</p>}
                     </div>
                 </div>
             </div>
+
+
+
+            {isAuthenticated && (
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 col-12 mx-auto">
+                            <h2 className="text-white text-center mb-4">Want to comment? Let's talk</h2>
+                            <div className="tab-content shadow-lg mt-5" id="nav-tabContent">
+                                <div className="tab-pane fade show active" id="nav-ContactForm" role="tabpanel" aria-labelledby="nav-ContactForm-tab">
+                                    <form className="custom-form contact-form mb-5 mb-lg-0" role="form" onSubmit={submitHandler}>
+                                        <div className="contact-form-body">
+                                            <textarea
+                                                name="comment"
+                                                rows={3}
+                                                className="form-control"
+                                                id="contact-message"
+                                                placeholder="Comment..."
+                                                onChange={changeHandler}
+                                                value={values.comment}
+                                            />
+                                            <div className="col-lg-4 col-md-10 col-8 mx-auto">
+                                                <button type="submit" className="form-control">Add Comment</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </section>
     );
 }
