@@ -11,8 +11,6 @@ const getAll = async (artistId) => {
     });
     const result = await requester.get(`${BASE_URL}?${params.toString()}`);
 
-    console.log(result);
-
     return result;
 };
 

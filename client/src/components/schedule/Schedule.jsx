@@ -1,4 +1,8 @@
+import { useGetWeather } from '../../hooks/useWeather';
+
 export default function Schedule() {
+    const threeDaysWeather = useGetWeather();
+
     return (
         <section className="schedule-section section-padding" id="section_4">
             <div className="container">
@@ -10,51 +14,60 @@ export default function Schedule() {
                                 <thead>
                                     <tr>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Wednesday</th>
-                                        <th scope="col">Thursday</th>
-                                        <th scope="col">Friday</th>
+                                        <th scope="col">5:00 - 8:00 PM</th>
+                                        <th scope="col">8:00 - 12:00 PM</th>
+                                        <th scope="col">Weather Forecast</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Day 1</th>
+                                        <th scope="row">11<sup>th</sup>, Aug</th>
                                         <td className="table-background-image-wrap pop-background-image">
                                             <h3>Pop Night</h3>
-                                            <p className="mb-2">5:00 - 7:00 PM</p>
-                                            <p>By Adele</p>
                                             <div className="section-overlay" />
                                         </td>
-                                        <td style={{ backgroundColor: '#F3DCD4' }} />
                                         <td className="table-background-image-wrap rock-background-image">
                                             <h3>Rock &amp; Roll</h3>
-                                            <p className="mb-2">7:00 - 11:00 PM</p>
-                                            <p>By Rihana</p>
                                             <div className="section-overlay" />
+                                        </td>
+                                        <td style={{ backgroundColor: '#ECC9C7' }} >
+                                            <p>{threeDaysWeather[0]?.description}</p>
+                                            <p>Min temp: {threeDaysWeather[0]?.tempmin}&#176;C</p>
+                                            <p>Max temp: {threeDaysWeather[0]?.tempmax}&#176;C</p>
+                                            <p>Humidity: {threeDaysWeather[0]?.humidity}%</p>
+                                            <div className="section-overlay"></div>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Day 2</th>
-                                        <td style={{ backgroundColor: '#ECC9C7' }} />
+                                        <th scope="row">12<sup>th</sup>, Aug</th>
+                                        <td style={{ backgroundColor: '#ECC9C7' }}>
+                                            <h3>Free Styles</h3>
+                                        </td>
                                         <td>
                                             <h3>DJ Night</h3>
-                                            <p className="mb-2">6:30 - 9:30 PM</p>
-                                            <p>By Rihana</p>
                                         </td>
-                                        <td style={{ backgroundColor: '#D9E3DA' }} />
+                                        <td style={{ backgroundColor: '#D9E3DA' }} >
+                                            <p>{threeDaysWeather[1]?.description}</p>
+                                            <p>Min temp: {threeDaysWeather[1]?.tempmin}&#176;C</p>
+                                            <p>Max temp: {threeDaysWeather[1]?.tempmax}&#176;C</p>
+                                            <p>Humidity: {threeDaysWeather[1]?.humidity}%</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Day 3</th>
+                                        <th scope="row">13<sup>th</sup>, Aug</th>
                                         <td className="table-background-image-wrap country-background-image">
                                             <h3>Country Music</h3>
-                                            <p className="mb-2">4:30 - 7:30 PM</p>
-                                            <p>By Rihana</p>
                                             <div className="section-overlay" />
                                         </td>
-                                        <td style={{ backgroundColor: '#D1CFC0' }} />
-                                        <td>
-                                            <h3>Free Styles</h3>
-                                            <p className="mb-2">6:00 - 10:00 PM</p>
-                                            <p>By Members</p>
+                                        <td className="table-background-image-wrap rock-background-image">
+                                            <h3>Rock &amp; Roll</h3>
+                                            <div className="section-overlay" />
+                                        </td>
+                                        <td style={{ backgroundColor: '#ECC9C7' }}>
+                                            <p>{threeDaysWeather[2]?.description}</p>
+                                            <p>Min temp: {threeDaysWeather[2]?.tempmin}&#176;C</p>
+                                            <p>Max temp: {threeDaysWeather[2]?.tempmax}&#176;C</p>
+                                            <p>Humidity: {threeDaysWeather[2]?.humidity}%</p>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -9,13 +9,13 @@ export default function Home() {
                     <div className="col-12 mt-auto mb-5 text-center">
                         <small>Sunny Beach Live Presents</small>
                         <h1 className="text-white mb-5">Night Live 2024</h1>
-                        <Link className="btn custom-btn smoothscroll" to="/catalog">Let's begin</Link>
+                        <Link className="btn custom-btn smoothscroll" to="/schedule">Let's begin</Link>
                     </div>
                     <div className="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
                         <div className="date-wrap">
                             <h5 className="text-white">
                                 <i className="custom-icon bi-clock me-2" />
-                                10 - 12<sup>th</sup>, Aug 2024
+                                11 - 13<sup>th</sup>, Aug 2024
                             </h5>
                         </div>
                         <div className="location-wrap mx-auto py-3 py-lg-0">

@@ -71,9 +71,23 @@ export default function ArtistDetails() {
                             <p className="text-white">{artist.summary}</p>
                             {isOwner && (
                                 <>
-                                    <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link>
-                                    <p></p>
-                                    <Link to="#" onClick={artistDeleteHandler} className="btn custom-btn d-lg-block d-none my-button">Delete</Link>
+                                    {/* <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-inline-block d-none my-button">Edit</Link> */}
+                                    {/* <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link> */}
+                                    {/* <p></p> */}
+                                    {/* <Link to="#" onClick={artistDeleteHandler} className="btn btn-secondary d-inline-block">Delete</Link> */}
+
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col">
+                                                <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link>
+                                                {/* <button type="button" className="btn btn-primary">Button 1</button> */}
+                                            </div>
+                                            <div className="col">
+                                                <Link to="#" onClick={artistDeleteHandler} className="btn custom-btn d-lg-block d-none my-button">Delete</Link>
+                                                {/* <button type="button" className="btn btn-secondary">Button 2</button> */}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </>
                             )}
                         </div>
@@ -98,8 +112,6 @@ export default function ArtistDetails() {
                     </div>
                 </div>
             </div>
-
-
 
             {isAuthenticated && (
                 <div className="container">
@@ -130,7 +142,6 @@ export default function ArtistDetails() {
                     </div>
                 </div>
             )}
-
         </section>
     );
 }

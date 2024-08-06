@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Pricing() {
     return (
         <section className="pricing-section section-padding section-bg" id="section_5">
@@ -21,10 +23,10 @@ export default function Pricing() {
                                 <li className="pricing-list-item">high-quality sound</li>
                                 <li className="pricing-list-item">standard content</li>
                             </ul>
-                            <a className="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
+                            <Link className="link-fx-1 color-contrast-higher mt-4" to="/about">
                                 <span>Buy Ticket</span>
                                 <svg className="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><circle cx={16} cy={16} r="15.5" /><line x1={10} y1={18} x2={16} y2={12} /><line x1={16} y1={12} x2={22} y2={18} /></g></svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     <div className="col-lg-6 col-12 mt-4 mt-lg-0">
@@ -42,10 +44,10 @@ export default function Pricing() {
                                 <li className="pricing-list-item">premium content</li>
                                 <li className="pricing-list-item">live chat support</li>
                             </ul>
-                            <a className="link-fx-1 color-contrast-higher mt-4" href="ticket.html">
+                            <Link className="link-fx-1 color-contrast-higher mt-4" to="/about">
                                 <span>Buy Ticket</span>
                                 <svg className="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><circle cx={16} cy={16} r="15.5" /><line x1={10} y1={18} x2={16} y2={12} /><line x1={16} y1={12} x2={22} y2={18} /></g></svg>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

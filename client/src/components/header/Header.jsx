@@ -23,7 +23,7 @@ export default function Header() {
                             <Link className="nav-link click-scroll" to="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/catalog">Artists</Link>
+                            <Link className="nav-link click-scroll" to="/catalog">Catalog</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link click-scroll" to="/schedule">Schedule</Link>
