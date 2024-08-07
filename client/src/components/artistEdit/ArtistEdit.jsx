@@ -2,20 +2,48 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useGetOneArtist } from '../../hooks/useArtists';
 import artistsAPI from '../../api/artists-api';
+import { useState } from 'react';
 
 export default function ArtistEdit() {
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const { artistId } = useParams();
     const [artist] = useGetOneArtist(artistId);
+
+    const editHandler = async (values) => {
+        if (values.name.length < 5) {
+            return setError('Name must be at least 3 characters long!');
+        }
+        if (values.imageUrl.length < 10) {
+            return setError('Image must be at least 10 characters long!');
+        }
+        if (values.birthday.length < 10) {
+            return setError('Birthday must be at least 10 characters long!');
+        }
+        if (values.music.length < 3) {
+            return setError('Music must be at least 3 characters long!');
+        }
+        if (values.youTubeChannel.length < 10) {
+            return setError('Youtube channel must be at least 10 characters long!');
+        }
+        if (values.summary.length < 10) {
+            return setError('Summary must be at least 10 characters long!');
+        }
+
+        try {
+            await artistsAPI.update(artistId, values);
+            
+            navigate(`/catalog/${artistId}/details`);
+        } catch (error) {
+            return setError(error.message);
+        }
+    };
+
     const {
         changeHandler,
         submitHandler,
         values,
-    } = useForm(artist, async (values) => {
-        await artistsAPI.update(artistId, values);
-
-        navigate(`/catalog/${artistId}/details`);
-    });
+    } = useForm(artist, editHandler);
 
     return (
         <section className="ticket-section section-padding">
@@ -93,6 +121,11 @@ export default function ArtistEdit() {
                                     required=""
                                 />
 
+                                {error && (
+                                    <p>
+                                        <span style={{ fontSize: '18px', color: 'red' }}>{error}</span>
+                                    </p>
+                                )}
                                 <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                     <button type="submit" className="form-control">
                                         Edit Artist

@@ -12,6 +12,17 @@ export function useGetAllArtists() {
     return [artists, setArtists];
 }
 
+export function useGetFirstArtists() {
+    const [artists, setArtists] = useState([]);
+
+    useEffect(() => {
+        artistsAPI.getFirstSix()
+            .then(result => setArtists(result));
+    }, []);
+
+    return [artists, setArtists];
+}
+
 export function useGetOneArtist(artistId) {
     const [artist, setArtist] = useState({
         name: '',
@@ -27,13 +38,10 @@ export function useGetOneArtist(artistId) {
             .then(result => setArtist(result));
     }, [artistId]);
 
-    return [
-        artist,
-        setArtist,
-    ];
+    return [artist, setArtist];
 }
 
-export function useCreateArtist () {
+export function useCreateArtist() {
     const artistCreateHandler = (artistData) => artistsAPI.create(artistData);
 
     return artistCreateHandler;

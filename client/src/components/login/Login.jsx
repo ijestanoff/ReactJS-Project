@@ -2,18 +2,24 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
+import { useState } from 'react';
 
 const initialValues = { email: '', password: '' };
 
 export default function Login() {
+    const [error, setError] = useState('');
     const login = useLogin();
     const navigate = useNavigate();
     const loginHandler = async ({ email, password }) => {
+        if (password.length < 5) {
+            return setError('Password must be at least 5 characters');
+        }
+
         try {
             await login(email, password);
             navigate('/');
         } catch (error) {
-            console.log(error.message);
+            return setError(error.message);
         }
     };
 
@@ -42,7 +48,7 @@ export default function Login() {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    pattern="[^ @]*@[^ @]*"
+                                    // pattern="[^ @]*@[^ @]*"
                                     className="form-control"
                                     placeholder="someone@somewhere.com"
                                     value={values.email}
@@ -59,7 +65,11 @@ export default function Login() {
                                     onChange={changeHandler}
                                     required=""
                                 />
-
+                                {error && (
+                                    <p>
+                                        <span style={{ fontSize: '18px', color: 'red' }}>{error}</span>
+                                    </p>
+                                )}
                                 <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                     <button type="submit" className="form-control">
                                         Login

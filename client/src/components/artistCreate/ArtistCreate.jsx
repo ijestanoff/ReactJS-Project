@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useCreateArtist } from '../../hooks/useArtists';
+import { useState } from 'react';
 
-const initialValues = {
+let initialValues = {
     name: '',
     birthday: '',
     music: '',
@@ -12,16 +13,35 @@ const initialValues = {
 };
 
 export default function ArtistCreate() {
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const createArtist = useCreateArtist();
 
     const createHandler = async (values) => {
+        if (values.name.length < 5) {
+            return setError('Name must be at least 3 characters long!');
+        }
+        if (values.imageUrl.length < 10) {
+            return setError('Image must be at least 10 characters long!');
+        }
+        if (values.birthday.length < 10) {
+            return setError('Birthday must be at least 10 characters long!');
+        }
+        if (values.music.length < 3) {
+            return setError('Music must be at least 3 characters long!');
+        }
+        if (values.youTubeChannel.length < 10) {
+            return setError('Youtube channel must be at least 10 characters long!');
+        }
+        if (values.summary.length < 10) {
+            return setError('Summary must be at least 10 characters long!');
+        }
+
         try {
             const { _id: artistId } = await createArtist(values);
             navigate(`/catalog/${artistId}/details`);
         } catch (error) {
-            //TODO show error
-            console.log(error.message);
+            return setError(error.message);
         }
     };
 
@@ -106,7 +126,11 @@ export default function ArtistCreate() {
                                     onChange={changeHandler}
                                     required=""
                                 />
-
+                                {error && (
+                                    <p>
+                                        <span style={{ fontSize: '18px', color: 'red' }}>{error}</span>
+                                    </p>
+                                )}
                                 <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                     <button type="submit" className="form-control">
                                         Add Artist

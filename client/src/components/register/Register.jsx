@@ -15,6 +15,10 @@ export default function Register() {
             return setError('Password missmatch!');
         }
 
+        if (values.password.length < 5) {
+            return setError('Password must be at least 5 characters');
+        }
+
         try {
             await register(values.email, values.password);
             navigate('/');
@@ -75,7 +79,11 @@ export default function Register() {
                                     onChange={changeHandler}
                                     required=""
                                 />
-
+                                {error && (
+                                    <p>
+                                        <span style={{ fontSize: '18px', color: 'red' }}>{error}</span>
+                                    </p>
+                                )}
                                 <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                     <button type="submit" className="form-control">
                                         Register

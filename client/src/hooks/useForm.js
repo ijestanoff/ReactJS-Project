@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function useForm(initialValues, submitCallback) {
+export function useForm(initialValues, submitCallback, clearForm = false) {
     const [values, setValues] = useState(initialValues);
 
     useEffect(() => {
@@ -19,7 +19,9 @@ export function useForm(initialValues, submitCallback) {
 
         await submitCallback(values);
 
-        setValues(initialValues); //clear form after use it!!
+        if (clearForm) {
+            setValues(initialValues);
+        }
     };
 
     return {

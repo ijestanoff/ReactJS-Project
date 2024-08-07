@@ -68,7 +68,7 @@ export default function Footer() {
                             {isAuthenticated
                                 ? (<>
                                     <li className="site-footer-link-item">
-                                        <Link to="/contact" className="site-footer-link">Festival</Link>
+                                        <Link to="/festival" className="site-footer-link">Festival</Link>
                                     </li>
                                     <li className="site-footer-link-item">
                                         <Link to="/create" className="site-footer-link">Add Artist</Link>

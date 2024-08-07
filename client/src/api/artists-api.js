@@ -8,18 +8,17 @@ export const getAll = async () => {
     return artists;
 };
 
-export const getLatest = async () => {
+export const getFirstSix = async () => {
     const urlSearchParams = new URLSearchParams({
-        sortBy: '_createdOn desc',
-        pageSize: 3,
+        sortBy: '_createdOn',
+        pageSize: 6,
     });
 
-    console.log(`${BASE_URL}?${urlSearchParams.toString()}`);
     const result = await request.get(`${BASE_URL}?${urlSearchParams.toString()}`);
 
-    const latestArtists = Object.values(result);
+    const firstArtists = Object.values(result);
 
-    return latestArtists;
+    return firstArtists;
 };
 
 export const getOne = (artistId) => request.get(`${BASE_URL}/${artistId}`);
@@ -36,7 +35,7 @@ const artistAPI = {
     create,
     remove,
     update,
-    getLatest,
+    getFirstSix,
 };
 
 export default artistAPI;

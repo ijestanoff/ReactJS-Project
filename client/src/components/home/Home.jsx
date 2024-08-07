@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom';
+import { useGetFestivalData } from '../../hooks/useFestival';
+
+const initialValues = {
+    startDay: '',
+    startMonth: '',
+    startYear: '',
+};
+
+const monthNames = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
 
 export default function Home() {
+    const [festival] = useGetFestivalData();
+    const festivalData = festival[0] || initialValues;
+
     return (
         <section className="hero-section" id="section_1">
             <div className="section-overlay" />
@@ -8,14 +22,14 @@ export default function Home() {
                 <div className="row">
                     <div className="col-12 mt-auto mb-5 text-center">
                         <small>Sunny Beach Live Presents</small>
-                        <h1 className="text-white mb-5">Night Live 2024</h1>
+                        <h1 className="text-white mb-5">Night Live {festivalData.startYear}</h1>
                         <Link className="btn custom-btn smoothscroll" to="/schedule">Let's begin</Link>
                     </div>
                     <div className="col-lg-12 col-12 mt-auto d-flex flex-column flex-lg-row text-center">
                         <div className="date-wrap">
                             <h5 className="text-white">
                                 <i className="custom-icon bi-clock me-2" />
-                                11 - 13<sup>th</sup>, Aug 2024
+                                {festivalData.startDay}<sup>th</sup>, {monthNames[festivalData.startMonth]} {festivalData.startYear}
                             </h5>
                         </div>
                         <div className="location-wrap mx-auto py-3 py-lg-0">

@@ -4,13 +4,14 @@ import { useForm } from '../../hooks/useForm';
 import { useAuthContext } from '../../contexts/AuthContext';
 import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 import artistsAPI from '../../api/artists-api';
+import { useState } from 'react';
 
 const initialValues = {
     comment: ''
 };
 
 export default function ArtistDetails() {
-
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const { artistId } = useParams();
     const [comments, dispatch] = useGetAllComments(artistId);
@@ -18,8 +19,6 @@ export default function ArtistDetails() {
     const { email, userId } = useAuthContext();
     const [artist] = useGetOneArtist(artistId);
 
-    //console.log('artist', artist);
-    
     const { isAuthenticated } = useAuthContext();
 
     const {
@@ -27,15 +26,20 @@ export default function ArtistDetails() {
         submitHandler,
         values,
     } = useForm(initialValues, async ({ comment }) => {
+        if (comment.length < 3) {
+            return setError('Comment must be at least 3 characters long!');
+        }
+        setError('');
+
         try {
             const newComment = await createComment(artistId, comment);
 
-            // setComments(oldComments => [...oldComments, newComment]);
             dispatch({ type: 'ADD_COMMENT', payload: { ...newComment, author: { email } } });
         } catch (error) {
             console.log(error.message);
+            return setError(error.message);
         }
-    });
+    }, true);
 
     const artistDeleteHandler = async () => {
         const isConfirmed = confirm(`Are you sure you want to delete ${artist.name} artist?`);
@@ -128,6 +132,11 @@ export default function ArtistDetails() {
                                             <div className="col-lg-4 col-md-10 col-8 mx-auto">
                                                 <button type="submit" className="form-control">Add Comment</button>
                                             </div>
+                                            {error && (
+                                                <p>
+                                                    <span style={{ fontSize: '18px', color: 'red' }}>{error}</span>
+                                                </p>
+                                            )}
                                         </div>
                                     </form>
                                 </div>

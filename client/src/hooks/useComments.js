@@ -18,16 +18,18 @@ function commentsReducer(state, action) {
     }
 }
 
-
-
 export function useGetAllComments(artistId) {
     const [comments, dispatch] = useReducer(commentsReducer, []);
 
     useEffect(() => {
         (async () => {
-            const result = await commentsAPI.getAll(artistId);
+            try {
+                const result = await commentsAPI.getAll(artistId);
 
-            dispatch({ type: 'GET_ALL', payload: result});
+                dispatch({ type: 'GET_ALL', payload: result});
+            } catch (error) {
+                console.log(error.message);
+            }
         })();
     }, [artistId]);
 
