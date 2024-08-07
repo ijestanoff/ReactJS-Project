@@ -65,11 +65,11 @@ export default function Footer() {
                             <li className="site-footer-link-item">
                                 <Link to="/pricing" className="site-footer-link">Pricing</Link>
                             </li>
-                            <li className="site-footer-link-item">
-                                <Link to="/contact" className="site-footer-link">Contact</Link>
-                            </li>
                             {isAuthenticated
                                 ? (<>
+                                    <li className="site-footer-link-item">
+                                        <Link to="/contact" className="site-footer-link">Festival</Link>
+                                    </li>
                                     <li className="site-footer-link-item">
                                         <Link to="/create" className="site-footer-link">Add Artist</Link>
                                     </li>

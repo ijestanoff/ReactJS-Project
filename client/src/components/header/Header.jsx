@@ -23,7 +23,7 @@ export default function Header() {
                             <Link className="nav-link click-scroll" to="/about">About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/catalog">Catalog</Link>
+                            <Link className="nav-link click-scroll" to="/catalog">Artist Catalog</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link click-scroll" to="/schedule">Schedule</Link>
@@ -31,14 +31,15 @@ export default function Header() {
                         <li className="nav-item">
                             <Link className="nav-link click-scroll" to="/pricing">Pricing</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/contact">Contact</Link>
-                        </li>
                         {isAuthenticated
-                            ? (
+                            ? (<>
+                                <li className="nav-item">
+                                    <Link className="nav-link click-scroll" to="/festival">Festival</Link>
+                                </li>
                                 <li className="nav-item">
                                     <Link className="nav-link click-scroll" to="/create">Add Artist</Link>
                                 </li>
+                            </>
                             )
                             : (<></>)
                         }

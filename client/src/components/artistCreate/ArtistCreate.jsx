@@ -11,7 +11,7 @@ const initialValues = {
     summary: '',
 };
 
-export default function Create() {
+export default function ArtistCreate() {
     const navigate = useNavigate();
     const createArtist = useCreateArtist();
 

@@ -18,6 +18,8 @@ export default function ArtistDetails() {
     const { email, userId } = useAuthContext();
     const [artist] = useGetOneArtist(artistId);
 
+    //console.log('artist', artist);
+    
     const { isAuthenticated } = useAuthContext();
 
     const {
@@ -70,25 +72,16 @@ export default function ArtistDetails() {
                             <h6 className="text-white mt-4">Summary:</h6>
                             <p className="text-white">{artist.summary}</p>
                             {isOwner && (
-                                <>
-                                    {/* <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-inline-block d-none my-button">Edit</Link> */}
-                                    {/* <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link> */}
-                                    {/* <p></p> */}
-                                    {/* <Link to="#" onClick={artistDeleteHandler} className="btn btn-secondary d-inline-block">Delete</Link> */}
-
-                                    <div className="container">
-                                        <div className="row">
-                                            <div className="col">
-                                                <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link>
-                                                {/* <button type="button" className="btn btn-primary">Button 1</button> */}
-                                            </div>
-                                            <div className="col">
-                                                <Link to="#" onClick={artistDeleteHandler} className="btn custom-btn d-lg-block d-none my-button">Delete</Link>
-                                                {/* <button type="button" className="btn btn-secondary">Button 2</button> */}
-                                            </div>
+                                <div className="container">
+                                    <div className="row">
+                                        <div className="col">
+                                            <Link to={`/catalog/${artistId}/edit`} className="btn custom-btn d-lg-block d-none my-button">Edit</Link>
+                                        </div>
+                                        <div className="col">
+                                            <Link to="#" onClick={artistDeleteHandler} className="btn custom-btn d-lg-block d-none my-button">Delete</Link>
                                         </div>
                                     </div>
-                                </>
+                                </div>
                             )}
                         </div>
                     </div>
@@ -99,16 +92,17 @@ export default function ArtistDetails() {
                         </div>
                     </div>
                     <p></p>
+
                     <div className="col-lg-6 col-12">
                         <h2 className="text-white mb-4">Comments:</h2>
-                        <ul>
-                            {comments.map(comment => (
-                                <li key={comment._id}>
-                                    <p className="text-white">{comment.author.email}: {comment.text}</p>
-                                </li>
-                            ))}
-                        </ul>
-                        {comments.length === 0 && <p className="no-comment">No comments.</p>}
+                        {comments.map(comment => (
+                            <div className="container mt-4" key={comment._id}>
+                                <div className="comment-bubble p-3">
+                                    <p><strong>{comment.author.email}: </strong>{comment.text}</p>
+                                </div>
+                            </div>
+                        ))}
+                        {comments.length === 0 && <p className="text-white">No comments.</p>}
                     </div>
                 </div>
             </div>

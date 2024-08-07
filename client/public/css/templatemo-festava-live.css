@@ -49,6 +49,37 @@ https://templatemo.com/tm-583-festava-live
   margin-right: 40px; /* Adjusts the space between the buttons */
 }
 
+.comment-bubble {
+  position: relative;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+  margin: 10px 0;
+}
+
+.comment-bubble {
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  display: inline-block;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.comment-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f1f1f1;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -5px;
+  margin-bottom: -10px;
+}
+
 body {
   background-color: var(--white-color);
   font-family: var(--body-font-family);

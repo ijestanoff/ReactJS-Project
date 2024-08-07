@@ -1377,6 +1377,21 @@
                 "_createdOn": 1722278744556,
                 "_id": "76497270-39b1-43be-8ea5-0ef35f898898"
             }
+        },
+        festival: {
+            "0234b536-6e61-4211-8773-0b4b56f82821": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "1",
+                "startDay": "11",
+                "startMonth": "08",
+                "startYear": "2024",
+                "firstDayMorning": "Country Music",
+                "firstDayNight": "Pop Night",
+                "secondDayMorning": "Free Styles",
+                "secondDayNight": "Heavy Metal",
+                "thirdDayMorning": "Rock & Roll",
+                "thirdDayNight": "Jazz"
+            }
         }
     };
     var rules$1 = {

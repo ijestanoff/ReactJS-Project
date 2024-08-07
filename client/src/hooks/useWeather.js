@@ -6,9 +6,7 @@ export function useGetWeather() {
 
     useEffect(() => {
         weatherAPI.getWeather()
-            .then(result => {
-                setWeather(result?.days.filter(day => day.datetime=='2024-08-11' || day.datetime=='2024-08-12' || day.datetime=='2024-08-13'));
-            });
+            .then(result => setWeather(result));
     }, []);
 
     return weather;
