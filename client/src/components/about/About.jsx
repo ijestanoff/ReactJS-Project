@@ -5,7 +5,7 @@ export default function About() {
                 <div className="row">
                     <div className="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
                         <div className="services-info">
-                            <h2 className="text-white mb-4">About Sunny Beach Festival 2024</h2>
+                            <h2 className="text-white mb-4">About Sunny Beach Festival</h2>
                             <p className="text-white">Sunny Beach Festival Live is incredible.</p>
                             <h6 className="text-white mt-4">Once in Lifetime Experience</h6>
                             <p className="text-white">You are welcome.</p>

@@ -18,7 +18,7 @@ const initialValues = {
 
 export default function Festival() {
     const [error, setError] = useState('');
-    
+
     const { email } = useAuthContext();
     
     const navigate = useNavigate();
@@ -127,8 +127,6 @@ export default function Festival() {
                                                 />
                                             </div>
                                         </div>
-
-
                                         <div className="row">
                                             <div className="col-lg-6 col-md-6 col-12">
                                                 <label>First day morning style:</label>

@@ -5,7 +5,7 @@ const FESTIVAL_ID = '0234b536-6e61-4211-8773-0b4b56f82821';
 
 export const getFestivalData = async () => {
     const result = await request.get(BASE_URL);
-    //const festival = Object.values(result);
+    
     return result;
 };
 

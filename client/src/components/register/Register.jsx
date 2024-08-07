@@ -46,7 +46,6 @@ export default function Register() {
                         >
                             <h2 className="text-center mb-4">Register</h2>
                             <div className="ticket-form-body">
-
                                 <label htmlFor="email">Email:</label>
                                 <input
                                     type="email"

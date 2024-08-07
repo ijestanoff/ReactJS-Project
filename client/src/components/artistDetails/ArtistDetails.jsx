@@ -6,9 +6,7 @@ import { useGetAllComments, useCreateComment } from '../../hooks/useComments';
 import artistsAPI from '../../api/artists-api';
 import { useState } from 'react';
 
-const initialValues = {
-    comment: ''
-};
+const initialValues = { comment: '' };
 
 export default function ArtistDetails() {
     const [error, setError] = useState('');

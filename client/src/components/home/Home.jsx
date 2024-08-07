@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useGetFestivalData } from '../../hooks/useFestival';
-// import { convertDate } from '../../utils/dateUtils';
 
 const initialValues = {
     startDay: '',
