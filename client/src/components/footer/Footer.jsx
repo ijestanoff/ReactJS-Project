@@ -129,9 +129,6 @@ export default function Footer() {
                                 <li className="site-footer-link-item">
                                     <Link to="/about" className="site-footer-link">Privacy Policy</Link>
                                 </li>
-                                {/* <li className="site-footer-link-item">
-                                    <Link to="/about" className="site-footer-link">Your Feedback</Link>
-                                </li> */}
                             </ul>
                         </div>
                     </div>

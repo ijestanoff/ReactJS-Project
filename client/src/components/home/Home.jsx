@@ -29,7 +29,7 @@ export default function Home() {
                         <div className="date-wrap">
                             <h5 className="text-white">
                                 <i className="custom-icon bi-clock me-2" />
-                                {festivalData.startDay}<sup>th</sup>, {monthNames[festivalData.startMonth]} {festivalData.startYear}
+                                {festivalData.startDay}<sup>th</sup>, {monthNames[Number(festivalData.startMonth)]} {festivalData.startYear}
                             </h5>
                         </div>
                         <div className="location-wrap mx-auto py-3 py-lg-0">
