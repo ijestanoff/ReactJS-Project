@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useGetFestivalData } from '../../hooks/useFestival';
+// import { convertDate } from '../../utils/dateUtils';
 
 const initialValues = {
     startDay: '',
@@ -15,6 +16,13 @@ export default function Home() {
     const [festival] = useGetFestivalData();
     const festivalData = festival[0] || initialValues;
 
+    // seconds * minutes * hours * milliseconds = 1 day 
+    const day = 60 * 60 * 24 * 1000;
+    const firstDay = new Date(festivalData.startYear, festivalData.startMonth - 1, festivalData.startDay);
+    const thirdDay = new Date(firstDay.getTime() + 2 * day);
+    const endDay = thirdDay.getDate();
+    const endMonth = thirdDay.getMonth() + 1;
+
     return (
         <section className="hero-section" id="section_1">
             <div className="section-overlay" />
@@ -29,7 +37,7 @@ export default function Home() {
                         <div className="date-wrap">
                             <h5 className="text-white">
                                 <i className="custom-icon bi-clock me-2" />
-                                {festivalData.startDay}<sup>th</sup>, {monthNames[Number(festivalData.startMonth)]} {festivalData.startYear}
+                                {festivalData.startDay}<sup>th</sup>, {monthNames[Number(festivalData.startMonth)]} {festivalData.startYear} - {endDay}<sup>th</sup>, {monthNames[endMonth]} {festivalData.startYear}
                             </h5>
                         </div>
                         <div className="location-wrap mx-auto py-3 py-lg-0">

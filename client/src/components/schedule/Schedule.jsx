@@ -1,6 +1,7 @@
 import { useGetFestivalData } from '../../hooks/useFestival';
 import { useGetFirstArtists } from '../../hooks/useArtists';
 import { useGetWeather } from '../../hooks/useWeather';
+import { convertDate } from '../../utils/dateUtils';
 
 const initialValues = {
     startDay: '',
@@ -17,19 +18,6 @@ const initialValues = {
 const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
 ];
-
-const convertDate = (date) => {
-    let day = date.getDate();
-    if (day < 10) {
-        day = '0' + day;
-    }
-    let month = date.getMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    }
-    const year = date.getYear();
-    return `${year + 1900}-${month}-${day}`;
-};
 
 export default function Schedule() {
     const getWeather = useGetWeather().days;

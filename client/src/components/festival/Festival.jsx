@@ -18,7 +18,7 @@ const initialValues = {
 
 export default function Festival() {
     const [error, setError] = useState('');
-
+    
     const { email } = useAuthContext();
     
     const navigate = useNavigate();
