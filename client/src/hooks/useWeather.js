@@ -6,7 +6,8 @@ export function useGetWeather() {
 
     useEffect(() => {
         weatherAPI.getWeather()
-            .then(result => setWeather(result));
+            .then(result => setWeather(result))
+            .catch(error => console.log(error.message));
     }, []);
 
     return weather;

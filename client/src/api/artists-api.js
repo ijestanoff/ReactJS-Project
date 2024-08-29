@@ -3,8 +3,8 @@ import * as request from './requester';
 const BASE_URL = 'http://localhost:3030/data/catalog';
 
 export const getAll = async () => {
-    const result = await request.get(BASE_URL);
-    const artists = Object.values(result);
+    const artists = await request.get(BASE_URL);
+    
     return artists;
 };
 
@@ -14,9 +14,7 @@ export const getFirstSix = async () => {
         pageSize: 6,
     });
 
-    const result = await request.get(`${BASE_URL}?${urlSearchParams.toString()}`);
-
-    const firstArtists = Object.values(result);
+    const firstArtists = await request.get(`${BASE_URL}?${urlSearchParams.toString()}`);
 
     return firstArtists;
 };
